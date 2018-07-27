@@ -1,0 +1,20 @@
+.review-container {
+    width: 70%;
+    padding: 20px;
+    display: inline-block;
+}
+.bold {
+    font-weight: 700;
+    color: black;
+    margin: 0 0 15px 0;
+}
+.review-break {
+    margin: 20px 0;
+}
+
+.edit-link {
+    color: #64C5AF;
+    float: right;
+    font-size: 10px;
+    cursor: pointer;
+}
