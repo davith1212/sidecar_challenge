@@ -114,7 +114,7 @@ class App extends React.PureComponent {
             if (currentDoctor && currentDoctor.id === doctor.id) {
               isActive = true
             }
-            
+
             return <DoctorCard 
               id={doctor.id}
               image={doctor.imageUrl} 
