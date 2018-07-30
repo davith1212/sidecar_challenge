@@ -9,11 +9,18 @@ const DoctorCard = ({
     reviews,
     image,
     onProfileSelect,
-    index
+    index,
+    isActive
 }) => {
     
+    let activeClass 
+
+    if (isActive) {
+        activeClass = 'active'
+    }
+
     return (
-        <div onClick={() => onProfileSelect(index)} className="doctor-card-container">
+        <div onClick={() => onProfileSelect(index)} className={`doctor-card-container ${activeClass}`}>
             <img className="doctor-card-thumb" src={image} alt="doctor thumb" />
             <div className="doctor-card-content">
                 <h3>{name}</h3>
@@ -21,7 +28,6 @@ const DoctorCard = ({
                 <p>{address.street}</p>
                 <p>{reviews.length} Reviews</p>
             </div>
-            <hr />
         </div>
     )
 }

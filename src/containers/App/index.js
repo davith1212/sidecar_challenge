@@ -109,6 +109,12 @@ class App extends React.PureComponent {
         <Header onSearch={this.onSearch} />
         <section className="left-content">
           {filteredDoctors.map((doctor, index) => {
+            let isActive = false
+
+            if (currentDoctor.id === doctor.id) {
+              isActive = true
+            }
+            
             return <DoctorCard 
               id={doctor.id}
               image={doctor.imageUrl} 
@@ -119,6 +125,7 @@ class App extends React.PureComponent {
               reviews={doctor.reviews}
               onProfileSelect={this.onProfileSelect}
               index={index}
+              isActive={isActive}
               key={index} />
           })}
         </section>
@@ -127,15 +134,15 @@ class App extends React.PureComponent {
         { // This checks to for a doctor to display or prints error message
           currentDoctor ?
           <DoctorProfile 
-          onLeaveReview={this.onLeaveReview}
-          reviewState={this.state.reviewState}
-          onCreateReview={this.onCreateReview}
-          onUpdateReview={this.onUpdateReview}
-          onRemoveReview={this.onRemoveReview}
-          onEdit={this.onEdit}
-          editIndex={this.state.editIndex}
-          doctor={currentDoctor} />
-        : <h3 className="no-search-results">No Search Results</h3>}
+            onLeaveReview={this.onLeaveReview}
+            reviewState={this.state.reviewState}
+            onCreateReview={this.onCreateReview}
+            onUpdateReview={this.onUpdateReview}
+            onRemoveReview={this.onRemoveReview}
+            onEdit={this.onEdit}
+            editIndex={this.state.editIndex}
+            doctor={currentDoctor} />
+          : <h3 className="no-search-results">No Search Results</h3>}
         </section>
       </div>
     );
