@@ -12,17 +12,18 @@ export default class DoctorProfile extends React.PureComponent {
         if (this.props.reviewState === 'Create') {
             return <ReviewCreateView 
                 onCreateReview={this.props.onCreateReview}
-            />
-        } else if (this.props.reviewState === 'Edit') {
-            return <ReviewCreateView 
+                doctor={doctor}
+                />
+            } else if (this.props.reviewState === 'Edit') {
+                return <ReviewCreateView 
                 onCreateReview={this.props.onCreateReview}
                 onRemoveReview={this.props.onRemoveReview}
                 onUpdateReview={this.props.onUpdateReview}
                 reviewToEdit={doctor.reviews[editIndex]}
                 editIndex={editIndex}
-            />
-        } else {
-            return <ReviewDefaultView 
+                />
+            } else {
+                return <ReviewDefaultView 
                 onLeaveReview={this.props.onLeaveReview}
                 onEdit={this.props.onEdit}
                 doctor={doctor} />

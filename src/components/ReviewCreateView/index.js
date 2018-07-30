@@ -30,7 +30,7 @@ export default class ReviewCreateView extends React.PureComponent {
             displayName: this.state.displayName
         }
 
-        this.props.onCreateReview(newReview)
+        this.props.onCreateReview(newReview, this.props.doctor.id)
     }
     onUpdateReview = () => {
         const updatedReview = {
