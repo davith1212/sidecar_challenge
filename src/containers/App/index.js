@@ -29,7 +29,7 @@ class App extends React.PureComponent {
     })
   }
 
-  onLeaveReview = () => {
+  onLeaveReview = (val) => {
     this.setState({
         reviewState: 'Create'
     })
@@ -42,17 +42,17 @@ class App extends React.PureComponent {
     })
   }
 
-  onLeaveReview = () => {
+  onLeaveReview = (val) => {
     this.setState({
       reviewState: 'Create'
     })
   }
-  onCreateReview = (newReview) => {
+  onCreateReview = (newReview, id) => {
     const date = moment().format("MMM DD, YYYY")
 
     this.props.dispatch({
       type: CREATE_REVIEW,
-      id: this.state.currentDoctor,
+      id: id - 1,
       payload: {date, review: newReview.review, displayName: newReview.displayName, isAuthor: true}
     })
 
@@ -111,10 +111,17 @@ class App extends React.PureComponent {
           {filteredDoctors.map((doctor, index) => {
             let isActive = false
 
+<<<<<<< HEAD
             if (currentDoctor.id === doctor.id) {
               isActive = true
             }
             
+=======
+            if (currentDoctor && currentDoctor.id === doctor.id) {
+              isActive = true
+            }
+
+>>>>>>> 7add6dcbfde942c4000a3dfe840e2bc258d08de3
             return <DoctorCard 
               id={doctor.id}
               image={doctor.imageUrl} 
