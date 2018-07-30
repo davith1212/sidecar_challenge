@@ -42,11 +42,6 @@ class App extends React.PureComponent {
     })
   }
 
-  onLeaveReview = (val) => {
-    this.setState({
-      reviewState: 'Create'
-    })
-  }
   onCreateReview = (newReview, id) => {
     const date = moment().format("MMM DD, YYYY")
 
